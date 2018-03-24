@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<title>Frozen Bubble</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="icon" type="image/png" href="icon.png" />
+	<link rel="stylesheet" type="text/css" href="fb.css" />
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"/>
+    <script type="text/javascript" src="game/scripts/zepr.js"></script>
+    <script type="text/javascript" src="game/scripts/game.js"></script>
+    <script type="text/javascript" src="game/scripts/action.js"></script>
+    <script type="text/javascript" src="game/scripts/view.js"></script>
+    <script type="text/javascript" src="game/scripts/local.js"></script>	
+	<script type="text/javascript" src="sound.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+</head>
+
+<body>
+	<canvas id="popup-game"></canvas>
+	<div class="container">
+		<header>
+			<nav id="nav-common">
+				<ul>
+					<li><div id="config-sound">Config son</div></li>
+				</ul>
+			</nav>
+			<h1>Frozen Bubble</h1>
+			<h2>JavaScript</h2>
+			<img src="fb_logo.png" alt="Logo Frozen Bubble" />
+			<nav id="nav-section">
+				<ul>
+					<li><a href="index.html">A PROPOS</a></li>
+					<li><a href="solo.html">SOLO</a></li>
+					<li><div class="selected">LOCAL</div></li>
+          			<li><a href="multi.html">RESEAU</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<div id="content">
+			<img id="fbgr" src="fb_graph.png" alt="Frozen Bubble" />
+			<h2>Jeu local</h2>
+			<div>Du "un contre un" sur un même clavier... ou contre la machine!</div>
+			<section>
+				<h2>Contrôles</h2>
+				<div id="p1">
+					<div class="center">Contrôles du joueur de gauche</div>
+					<div class="controls"><span>S</span></div>
+					<div class="controls"><span>W</span><span>&nbsp;</span><span>C</span></div>
+					<div class="center">[W/Z] = Tourner à gauche, [C] = Tourner à droite, [S] = Tirer</div> 
+				</div>
+				<br/>
+				<div id="p2">
+					<div class="center">Contrôles du joueur de droite</div>
+					<div class="controls"><span>&uarr;</span></div>
+					<div class="controls"><span>&larr;</span><span>&nbsp;</span><span>&rarr;</span></div>
+					<div class="center">[&larr;] = Tourner à gauche, [&rarr;] = Tourner à droite, [&uarr;] = Tirer</div> 					
+				</div>
+			</section>
+		</div>
+
+		<section class="cards">
+			<div id="slot0" class="state-empty">
+				<h1>Deux joueurs</h1>
+			</div>      
+			<div id="slot1" class="state-empty">
+				<h1>Un joueur et un robot</h1>
+			</div>
+			<div id="slot2" class="state-empty">
+				<h1>Deux robots</h1>
+			</div>
+		</section>
+	</div>
+
+</body>
+
+</html>

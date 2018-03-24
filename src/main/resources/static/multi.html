@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <title>Frozen Bubble</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="icon" type="image/png" href="icon.png" />
+    <link rel="stylesheet" type="text/css" href="fb.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"/>
+    <script type="text/javascript" src="game/scripts/zepr.js"></script>
+    <script type="text/javascript" src="game/scripts/network.js"></script>    
+    <script type="text/javascript" src="game/scripts/game.js"></script>
+    <script type="text/javascript" src="game/scripts/action.js"></script>
+    <script type="text/javascript" src="game/scripts/view.js"></script>
+    <script type="text/javascript" src="game/scripts/multi.js"></script>
+    <script type="text/javascript" src="sound.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  </head>
+  <body>
+    <div id="popup-show-player">
+      <div>Connecté en tant que</div>
+      <div id="show-player"></div>
+    </div>
+
+    <div id="popup-login" class="popup">
+		<div class="popup-content purple">
+      <div class="popup-close"></div>
+			<h1>Choix de pseudo</h1>
+			<input id="username" type="text" name="player_name" placeholder="Mon pseudo" maxlength="16" />
+			<div id="action-login" class="popup-action">C'est parti!</div>
+		</div>
+	</div>
+  	
+    <div id="popup-create" class="popup">
+		<div class="popup-content pink">
+	        <div class="popup-close"></div>
+	        <h1>Nouvelle partie</h1>
+	        <input id="game-title" type="text" name="title" placeholder="Titre" maxlength="16" />
+          <div>
+            <input id="c_pink" type="radio" class="pink" name="color" checked="checked" /><label for="c_pink"><span>Rose</span></label>
+            <input id="c_yellow" type="radio" class="yellow" name="color" /><label for="c_yellow"><span>Jaune</span></label>
+            <input id="c_red" type="radio" class="red" name="color" /><label for="c_red"><span>Rouge</span></label>
+            <input id="c_green" type="radio" class="green" name="color" /><label for="c_green"><span>Vert</span></label>
+            <input id="c_blue" type="radio" class="blue" name="color" /><label for="c_blue"><span>Bleu</span></label>
+          </div>
+	        <input type="checkbox" id="chain" name="chain" checked="checked" /><label for="chain"><span>Chain</span></label>
+    	    <input type="checkbox" id="robot" name="robot" /><label for="robot"><span>Robot</span></label>
+	        <div id="action-create" class="popup-action">Cr&eacute;er</div>
+		</div>
+	</div>
+    <div id="popup-join" class="popup">
+		<div class="popup-content yellow">
+	        <div class="popup-close"></div>
+	        <h1>Non d&eacute;fini</h1>
+	        <ul id="popup-players">
+	           <li>&nbsp;</li>
+	           <li>&nbsp;</li>
+	           <li>&nbsp;</li>
+	           <li>&nbsp;</li>
+	           <li>&nbsp;</li>
+	        </ul>
+          <div id="wait_players">En attente de joueurs</div>
+	        <div id="action-start" class="popup-action">D&eacute;marrer</div>
+		</div>
+	</div>
+	<canvas id="popup-game"></canvas>
+    <div class="container">
+		<header>
+			<nav id="nav-common">
+				<ul>
+          <li><div id="config-player">Joueur</div></li>
+          <li><div id="config-sound">Config son</div></li>
+				</ul>
+			</nav>
+			<h1>Frozen Bubble</h1>
+			<h2>JavaScript</h2>
+			<img src="fb_logo.png" alt="Logo Frozen Bubble" />
+			<nav id="nav-section">
+				<ul>
+					<li><a href="index.html">A PROPOS</a></li>
+					<li><a href="solo.html">SOLO</a></li>
+					<li><a href="local.html">LOCAL</a></li>
+          <li><div class="selected">RESEAU</div></li>
+				</ul>
+			</nav>
+		</header>
+
+      <section class="cards">
+        <div id="slot0" class="state-empty">
+          <h1>Emplacement libre</h1>
+          <ul>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+          </ul>
+        </div>      
+        <div id="slot1" class="state-empty">
+          <h1>Emplacement libre</h1>
+          <ul>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+          </ul>
+        </div>
+        <div id="slot2" class="state-empty">
+          <h1>Emplacement libre</h1>
+          <ul>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+          </ul>
+        </div>
+        <div id="slot3" class="state-empty">
+          <h1>Emplacement libre</h1>
+          <ul>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+          </ul>
+        </div>
+        <div id="slot4" class="state-empty">
+          <h1>Emplacement libre</h1>
+          <ul>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+          </ul>
+        </div>
+        <div id="slot5" class="state-empty">
+          <h1>Emplacement libre</h1>
+          <ul>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+          </ul>
+        </div>
+        <div id="slot6" class="state-empty">
+          <h1>Emplacement libre</h1>
+          <ul>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+          </ul>
+        </div>
+        <div id="slot7" class="state-empty">
+          <h1>Emplacement libre</h1>
+          <ul>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+          </ul>
+        </div>
+        <div id="slot8" class="state-empty">
+          <h1>Emplacement libre</h1>
+          <ul>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+          </ul>
+        </div>
+        <div id="slot9" class="state-empty">
+          <h1>Emplacement libre</h1>
+          <ul>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+          </ul>
+        </div>
+        <div id="slot10" class="state-empty">
+          <h1>Emplacement libre</h1>
+          <ul>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+          </ul>
+        </div>
+        <div id="slot11" class="state-empty">
+          <h1>Emplacement libre</h1>
+          <ul>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <div id="overlay" class="overlay"></div>
+  </body>
+</html>

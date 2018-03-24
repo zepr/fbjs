@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<title>Frozen Bubble</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="icon" type="image/png" href="icon.png" />
+	<link rel="stylesheet" type="text/css" href="fb.css" />
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"/>
+    <script type="text/javascript" src="game/scripts/zepr.js"></script>
+    <script type="text/javascript" src="game/scripts/game.js"></script>
+    <script type="text/javascript" src="game/scripts/action.js"></script>
+    <script type="text/javascript" src="game/scripts/view.js"></script>
+    <script type="text/javascript" src="game/scripts/solo.js"></script>	
+	<script type="text/javascript" src="sound.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+</head>
+
+<body>
+	<canvas id="popup-game"></canvas>
+	<div class="container">
+		<header>
+			<nav id="nav-common">
+				<ul>
+					<li><div id="config-sound">Config son</div></li>
+				</ul>
+			</nav>
+			<h1>Frozen Bubble</h1>
+			<h2>JavaScript</h2>
+			<img src="fb_logo.png" alt="Logo Frozen Bubble" />
+			<nav id="nav-section">
+				<ul>
+					<li><a href="index.html">A PROPOS</a></li>
+					<li><div class="selected">SOLO</div></li>
+					<li><a href="local.html">LOCAL</a></li>
+          			<li><a href="multi.html">RESEAU</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<div id="content">
+			<img id="fbgr" src="fb_graph.png" alt="Frozen Bubble" />
+			<h2>Jeu solo</h2>
+			<span>100 niveaux de difficulté progressive pour apprendre à maîtriser le jeu. Eliminez toutes les bulles d'un niveau pour passer au suivant!</span>
+		</div>
+
+		<section class="cards">
+			<div id="slot0" class="state-empty">
+				<h1>Démarrer</h1>
+			</div>      
+		</section>
+	</div>
+
+</body>
+
+</html>
