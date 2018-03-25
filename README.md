@@ -36,16 +36,58 @@ Le mode ultime, jusqu'à 5 joueurs en réseau
 
 ## Utilisation
 
-Le serveur peut être démarré avec la commande Maven
-```
+Le serveur peut être démarré de plusieurs façons. Dans chaque cas, le jeu est accessible à l'adresse [http://localhost:8080](http://localhost:8080/).
+
+### Maven - direct
+
+Dans le répertoire du projet, exécuter
+
+``` shell
 mvn spring-boot:run
 ```
-Le jeu est alors accessible à l'adresse [http://localhost:8080](http://localhost:8080/).
+
+### Maven - fat jar
+
+#### Construction du fat jar
+
+Dans le répertoire du projet, exécuter
+
+``` shell
+mvn clean package
+```
+
+Cette commande permet de générer un jar `fbjs-<version>.jar` dans le répertoire de sortie
+
+#### Exécution
+
+Il suffit alors d'exécuter ce jar
+
+``` shell
+java -jar fbjs-<version>.jar
+```
+
+### Docker
+
+Un fichier dockerfile est présent à la racine du projet. Il reconstruit le serveur à partir des sources [github.com](https://github.com/zepr/fbjs).
+
+#### Construction de l'image
+
+Dans le répertoire du projet, exécuter
+
+``` shell
+docker build -t fbjs .
+```
+
+#### Exécution
+
+``` shell
+docker run -t -i -p 8080:8080 fbjs
+```
 
 ## Auteurs
 
 | Auteur                     |                    Contribution |
-| -------------------------- | -------------------------------:|
+| :------------------------- | -------------------------------:|
 | Guillaume Cottenceau       | Concept, développement Perl/SDL |
 | Alexis Younes              |                Design graphique |
 | Matthias le Bidan (Matths) |                 Sons et musique |
